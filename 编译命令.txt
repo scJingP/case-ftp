@@ -1,0 +1,7 @@
+create table ftp_user(id integer primary key autoincrement not null, username varchar(20) default(''), userpwd varchar(20) default(''), status blob default(1));
+
+insert into ftp_user(username,userpwd,status) values('pengjing','123456',1);
+
+gcc -g ftpserver.c -o server -L. -Wl,-Bdynamic -lpthread -lsqlite3 -Wl,-Bstatic -lseqlist -Wl,-Bdynamic
+
+gcc -g ftpclient.c -o client -lpthread
